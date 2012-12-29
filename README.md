@@ -1,6 +1,6 @@
 Streams
 =======
-Analyzes patterns on streams
+Analyzes streams for patterns
 
 How it works
 ============
