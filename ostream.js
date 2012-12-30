@@ -1,26 +1,34 @@
 // faye instance
 var Faye   = require('faye');
-var pattern = require('pattern');
 
-//client instance
+// Import pattern module
+var pattern = require('pattern1');
+
+// Client instance and connect()
 var client = new Faye.Client('http://localhost:8000/faye', {timeout : 120});
 client.connect();
 
-var buffer = [];
-client.subscribe('/inChannel', function(message) {
-        if(buffer.length == 5) {
-		if(pattern.apply_patterns(buffer)) {
-			console.log(buffer);
-			client.publish('/outChannel', {text : buffer});
-		}
-                buffer.shift();
-                buffer.push(message.text);
-        } else {
-                buffer.push(message.text);
-        }
-});
+function outchannel(buffer) {
+                        var pub = client.publish('/outChannel', {
+                                text : buffer
+                        });
+}
 
-//callback = function(buffer) {
-//	console.log(pattern.apply_patterns(buffer));
-//	}
+// Init buffer of 5 elements
+var buffer = [0,0,0,0,0];
+
+// Read buffer on subscribed inChannel
+var sub = client.subscribe('/inChannel', function(message) {
+                pattern.apply_patterns(buffer, function(result) {
+		//console.log("in async");
+		if (result) {
+			//console.log("Pattern matched:" +buffer);
+			var pub = client.publish('/outChannel', { text : buffer });
+			}
+		});
+		//console.log("out async");
+                buffer.shift();
+		
+                buffer.push(message.text);
+});
 
