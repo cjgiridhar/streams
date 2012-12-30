@@ -2,7 +2,7 @@
 var Faye   = require('faye');
 
 // Import pattern module
-var pattern = require('pattern1');
+var pattern = require('pattern');
 
 // Client instance and connect()
 var client = new Faye.Client('http://localhost:8000/faye', {timeout : 120});
