@@ -6,14 +6,15 @@ var fs = require('fs');
 var client = new Faye.Client('http://localhost:8000/faye', {timeout : 120});
 client.connect();
 
-var readStream = fs.ReadStream("/home/ubuntu/node/numbers.txt",  { bufferSize: 1024});
-readStream.setEncoding('ascii'); // This is key; otherwise we'd be using buffers
+// Create input stream
+var readStream = fs.ReadStream("./numbers.txt");
+readStream.setEncoding('ascii'); 
 
 var buf = '';
 readStream.on('data', function(textData) {
 	buf += textData;
 	var lines = buf.split("\n");
-	for(var i = 0, iMax = lines.length; i < iMax; i++) {
+	for(var i = 0, i < lines.length; i++) {
 		client.publish('/inChannel', {text : lines[i]});
 	    }
 	});
