@@ -8,12 +8,6 @@ var pattern = require('pattern');
 var client = new Faye.Client('http://localhost:8000/faye', {timeout : 120});
 client.connect();
 
-function outchannel(buffer) {
-                        var pub = client.publish('/outChannel', {
-                                text : buffer
-                        });
-}
-
 // Init buffer of 5 elements
 var buffer = [0,0,0,0,0];
 
