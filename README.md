@@ -20,11 +20,14 @@ Design Considerations
 	1. Work done at istream and ostream is independent of each other
 	2. Scalability in terms of patterns can be better served
 
-Usage
-=====
-1. node serve.js
-2. node ostream.js (Make sure pattern.js is loadable)
-3. node istream.js
-4. node add_pattern.js (User defined patterns)
-- pattern.htm is the form that user fills
-- code is generated on the web page
+Analyze Patterns
+================
+- node server.js
+- node ostream.js (Make sure pattern.js is loadable)
+- node istream.js
+
+Add Patterns
+============
+- node add_pattern.js (User defined patterns)
+	1. pattern.htm is the form that user fills
+	2. code is generated on the web page
