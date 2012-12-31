@@ -11,6 +11,14 @@ How it works
 - Patterns from pattern.js are then applied on the buffer
 - Matched pattern is then published on /outChannel
 
+Design Considerations
+=====================
+- Two clients (istreams and ostream) are maintained and no server-side clients used. This keeps the server unblocked.
+- At ostream, operations of, generating buffer from input stream and applying patterns on this buffer are handled async way.
+- Above ensures:
+	1. Work done at istream and ostream is independent of each other
+	2. Scalability in terms of patterns can be better served
+
 Usage
 =====
 1. node serve.js
