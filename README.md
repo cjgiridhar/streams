@@ -6,10 +6,11 @@ How it works
 ============
 - istream.js creates a stream of numbers taking input from numbers.txt
 - Stream is then published on /inChannel
-- Serve.js is a server that serves the requests on different channels
+- Server.js is a server that serves the requests on different channels
 - ostream.js, that is subscribed on /inChannel, gets the numbers and stores them in a buffer (5 at a time)
 - Patterns from pattern.js are then applied on the buffer
 - Matched pattern is then published on /outChannel
+- Supports user defined patterns
 
 Design Considerations
 =====================
@@ -24,3 +25,8 @@ Usage
 1. node serve.js
 2. node ostream.js (Make sure pattern.js is loadable)
 3. node istream.js
+
+For user defined patterns
+1. node add_pattern.js 
+	pattern.htm is the form that user fills
+	code is generated on the web page
