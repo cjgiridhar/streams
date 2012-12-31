@@ -25,8 +25,6 @@ Usage
 1. node serve.js
 2. node ostream.js (Make sure pattern.js is loadable)
 3. node istream.js
-
-For user defined patterns
-1. node add_pattern.js 
-	pattern.htm is the form that user fills
-	code is generated on the web page
+4. node add_pattern.js (User defined patterns)
+- pattern.htm is the form that user fills
+- code is generated on the web page
