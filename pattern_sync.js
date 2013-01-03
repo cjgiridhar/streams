@@ -40,7 +40,7 @@ var pattern_gp = function(list) {
 
 
 function apply_patterns(list) {
-	return (pattern_fibonacci(list) + pattern_ap(list) + pattern_gp(list)) ;
+	return (pattern_fibonacci(list) || pattern_ap(list) || pattern_gp(list)) ;
 }
 
 exports.apply_patterns = apply_patterns;

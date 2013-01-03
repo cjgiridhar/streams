@@ -41,7 +41,7 @@ var pattern_fibonacci = function(list) {
 // Pattern match on buffer
 var apply_patterns= function(list, callback) {
 		process.nextTick(function() {
-			callback( pattern_fibonacci(list) + pattern_ap(list) + pattern_gp(list)); 
+			callback( pattern_fibonacci(list) || pattern_ap(list) || pattern_gp(list)); 
 		});
 }
 
