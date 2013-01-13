@@ -6,16 +6,15 @@ var patterns = require('patterns');
 
 var results = 0;
 
-function async(arg, callback) {
+function func(arg, callback) {
           results = results || arg;
-          process.nextTick(function() {  callback(arg); });
 }
 
 
 function apply_patterns(list) {
         var x = 0;
         patterns.items.forEach (function(item) {
-                async(item(list), function callback(error,result){
+                func(item(list), function callback(error,result){
                 });
         });
         x = results;
