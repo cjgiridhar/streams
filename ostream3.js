@@ -17,12 +17,8 @@ function apply_patterns(list, callback) {
                 results = results || item(list);
                 });
 
-	process.nextTick(function() {
-		callback(results);
-	});
 }
 var sub = client.subscribe('/inChannel', function(message) {
-		console.log(Date.now());
                 apply_patterns(buffer, function(error,result){ 
 		})
 		if (results) {
