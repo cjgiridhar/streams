@@ -8,7 +8,7 @@ function apply_patterns(list) {
         var result = 0;
         patterns.items.forEach(function(item) {
                 result = result || item(list);
-        });
+             });
         return (result);
 }
 
